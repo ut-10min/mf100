@@ -140,6 +140,7 @@ function applyConfigToPage(html, config, pageKey) {
   html = replaceByDataConfig(html, `pageTitles.${pageKey}`, config.pageTitles?.[pageKey]);
   html = replaceByDataConfig(html, "labels.top", config.labels?.top);
   html = replaceByDataConfig(html, "festivalName", config.festivalName);
+  html = replaceByDataConfig(html, "festivalShortName", config.festivalShortName);
   html = replaceLinks(html, config.links || {}, config.sns || {});
   return html;
 }

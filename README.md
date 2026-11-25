@@ -27,7 +27,7 @@ Github Pagesの設定で、`dist/` を公開するようにするため、
 - SNSリンク
 - 運営統括・運営メンバー
 
-開催回を切り替える際は、`festivalName`（例：`第77回駒場祭`／`第100回五月祭`）と、`venueName`・`venueAddress`、地図リンクを更新してください。トップページの投票案内・当日の案内にも `festivalName` が反映され、会場の駒場／本郷の表記は `venueName` から反映されます。ページタイトル・説明文・上部ラベルは、それぞれ `pageTitles`・`metaDescriptions`・`labels.top` で設定します。
+開催回を切り替える際は、`festivalName`（例：`第77回駒場祭`／`第100回五月祭`）と、`venueName`・`venueAddress`、地図リンクを更新してください。トップページの投票案内・当日の案内にある祭名は `festivalShortName`（`五月祭`／`駒場祭`、現在は `五月祭`）で切り替えます。会場の駒場／本郷の表記は `venueName` から反映されます。ページタイトル・説明文・上部ラベルは、それぞれ `pageTitles`・`metaDescriptions`・`labels.top` で設定します。
 
 
 ## HTML内の仮表示とconfigの関係
