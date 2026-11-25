@@ -1,6 +1,6 @@
-# kf77 website
+# mf100 website
 
-このリポジトリは、駒場祭77回生の講演企画の公式サイトのソースコードを管理しています。
+このリポジトリは、第100回五月祭の講演企画の公式サイトのソースコードを管理しています。
 
 基本的にdata/ 以下のJSONファイルを編集して、HTML内の仮表示を上書きする形で運用します。HTMLやCSS、JavaScriptは基本的に編集不要です。
 - data/config.json: 外部リンク、日付、会場、SNS、動画、地図
@@ -42,38 +42,91 @@ HTML内には実データを重複して書かず、以下のような仮表示�
 
 JavaScriptが正常に動くと、configの値が優先されます。JavaScriptが動かない場合は、HTML内の仮表示がそのまま表示されます。
 
-## talks.json と schedule.json について 
+## 準備中の表示と公開への切り替え
 
-`talks.json`のテンプレは以下のようになっています。
-```
+現在は `data/talks.json` と `data/schedule.json` をそれぞれ空配列 `[]` にしています。
+既存の表示処理により、講演一覧（`talks.html`）とタイムテーブル（`timetable.html`）に
+「現在整備中です。公開までしばらくお待ちください。」と表示されます。
+このリポジトリには `schedule.html` はありません。
+HTML本体を編集せず、JSONの更新と静的ビルドで表示を切り替えられます。
+
+公開時は以下のテンプレートをコピーし、仮の内容を確定した情報に置き換えてください。
+両ファイルとも、最上位は配列です。複数件を入れるときは配列内のオブジェクトをカンマで区切ります。
+JSONにはコメントや末尾の余分なカンマを書けないため、入力例や復旧手順はこのREADMEに記載しています。
+
+### data/talks.json のテンプレート
+
+```json
+[
   {
-    "id": "speaker-小林涼太郎",
-    "title": "ことばの使用から意味を見る",
-    "speaker": "小林涼太郎",
-    "speakerKana": "コバヤシ リョウタロウ",
-    "englishName": "Ryotaro Kobayashi",
-    "affiliation": "工学系研究科",
-    "department": "システム創成学専攻",
-    "field": "金融情報学",
-    "description": "語の「意味」とは何かを明らかにすることは難しいですが、語の使用に注目すれば、データ中の統計的な分布から意味の一側面を捉えられます。この発想が最先端のAIや言語処理研究とどうつながっているかを話します。"
-  },
+    "id": "speaker-example",
+    "title": "講演タイトル（入力例）",
+    "speaker": "講演者名",
+    "speakerKana": "コウエンシャメイ",
+    "englishName": "Speaker Name",
+    "affiliation": "所属研究科",
+    "department": "専攻名",
+    "field": "研究分野",
+    "description": "講演概要を入力してください。"
+  }
+]
 ```
-`schedule.json`のテンプレは以下のようになっています。
-```
+
+### data/schedule.json のテンプレート
+
+以下の日付・時刻は形式を示す仮の値で、開催日程ではありません。
+`date` は `YYYY-MM-DD`、`start`・`end` は `HH:MM` 形式で入力します。
+`dateLabel` は画面に表示する日付です。
+
+```json
+[
   {
-    "date": "2026-05-16",
-    "dateLabel": "5月16日（土）",
-    "start": "15:40",
-    "end": "16:00",
-    "talkId": "speaker-小林涼太郎",
-    "speaker": "小林涼太郎",
+    "date": "2027-05-01",
+    "dateLabel": "5月1日（土）【入力例】",
+    "start": "10:00",
+    "end": "10:20",
     "type": "talk",
+    "talkId": "speaker-example",
+    "speaker": "講演者名"
   },
-```  
-タイムテーブルのpdfやアンケート結果をこのjsonに反映させるときは、ChatGPT等をうまく活用してください。`talkId` と `speaker` は、`talks.json` の `id` と `speaker` を対応させる必要があります。
-ワークショップもタイトルにワークショップとつけることで切り替わるように対応しているはずです、多分。
+  {
+    "date": "2027-05-01",
+    "dateLabel": "5月1日（土）【入力例】",
+    "start": "10:20",
+    "end": "10:40",
+    "type": "break",
+    "title": "座談会・休憩などのタイトル",
+    "speakers": ["講演者名"],
+    "speakerIds": ["speaker-example"],
+    "description": "内容紹介を入力してください。"
+  }
+]
+```
 
-mf99ではレギュラーが発生してキャンセル処理もできるような拡張を施してあるので、万が一中止等の事態があれば参照してください。
+講演枠の `talkId` と `speaker` は、`talks.json` の `id` と `speaker` に対応させてください。
+`type: "break"` の枠は講演情報との紐付けなしで表示でき、休憩なら `speakers`・`speakerIds`・`description` は省略できます。
+公開前に両方のJSONを更新し、`npm run build` 後に `dist/talks.html` と `dist/timetable.html` を確認してください。
+再び準備中に戻すときは、両ファイルを `[]` にして再ビルドします。
+
+### ウェビナーのリンク
+
+現在の `data/config.json` の `links.zoomRegister` は `404.html` です。
+トップページの2か所のオンライン事前登録リンクは、用意済みの準備中ページを開きます。
+リンクの新しいタブで開く設定（`target="_blank"`、`rel="noopener"`）はそのままです。
+
+以前と同じ登録先に戻すには、`links.zoomRegister` を次の値に変更して再ビルドします。
+
+```json
+"zoomRegister": "https://ut-10min.github.io/registration"
+```
+
+<!-- ウェビナー公開時: data/config.json の links.zoomRegister を上記の元のURL、
+または第100回五月祭用に確定した登録URLへ変更し、npm run build で反映する。 -->
+
+### 会場のGoogleマップ
+
+`data/config.json` の `links.googleMap`（ボタンのリンク）と `links.mapEmbed`（埋め込み地図）は、
+mf99の設定を参照して本郷キャンパスの工学部3号館を示す値に揃えています。
 
 ## Node.js による静的ビルド
 

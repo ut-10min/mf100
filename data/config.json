@@ -1,29 +1,29 @@
 {
-  "festivalName": "第77回駒場祭",
+  "festivalName": "第100回五月祭",
   "shortName": "10分で伝えます！東大研究最前線",
   "labels": {
-    "top": "第77回駒場祭 講演情報トップ"
+    "top": "第100回五月祭 講演情報トップ"
   },
   "pageTitles": {
-    "index": "第77回駒場祭｜10分で伝えます！東大研究最前線",
-    "talks": "講演一覧｜第77回駒場祭 10分で伝えます！東大研究最前線",
-    "timetable": "タイムテーブル｜第77回駒場祭 10分で伝えます！東大研究最前線"
+    "index": "第100回五月祭｜10分で伝えます！東大研究最前線",
+    "talks": "講演一覧｜第100回五月祭 10分で伝えます！東大研究最前線",
+    "timetable": "タイムテーブル｜第100回五月祭 10分で伝えます！東大研究最前線"
   },
   "metaDescriptions": {
-    "index": "第77回駒場祭企画「10分で伝えます！東大研究最前線」のイベントページです。東京大学の大学院生・若手研究者が、最先端の研究を10分でわかりやすく紹介します。",
-    "talks": "第77回駒場祭企画の講演一覧です。",
-    "timetable": "第77回駒場祭企画のタイムテーブルです。"
+    "index": "第100回五月祭企画「10分で伝えます！東大研究最前線」のイベントページです。東京大学の大学院生・若手研究者が、最先端の研究を10分でわかりやすく紹介します。",
+    "talks": "第100回五月祭企画の講演一覧です。",
+    "timetable": "第100回五月祭企画のタイムテーブルです。"
   },
-  "dateTimeText": "2026年11月21日（土）10:00–17:00／11月22日（日）10:00–17:00／11月23日（月）10:00–15:00",
-  "venueName": "東京大学駒場キャンパス 21 KOMCEE East 2階 K211",
-  "venueAddress": "〒153-8902 東京都目黒区駒場3丁目8−1",
+  "dateTimeText": "2027年5月XX日（土）10:00–17:00／5月XX日（日）10:00–15:00",
+  "venueName": "未定(前回は 東京大学本郷キャンパス 工学部3号館 2階 31号講義室)",
+  "venueAddress": "〒113-8656 東京都文京区本郷7-3-1",
   "links": {
     "officialHome": "https://ut-10min.github.io/",
     "vote": "https://ut-10min.github.io/vote",
-    "zoomRegister": "https://ut-10min.github.io/registration",
+    "zoomRegister": "404.html",
     "contactForm": "https://forms.gle/yDF9upZH6AzfChyFA",
-    "googleMap": "https://maps.app.goo.gl/rUvLG4HFmAQksFSz5",
-    "mapEmbed": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3241.666642055791!2d139.6837761!3d35.660584!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018f353d40075ad%3A0x563e46f8dccdaf7!2z5p2x5Lqs5aSn5a2mIDIxS09NQ0VFIEVhc3Q!5e0!3m2!1sja!2sjp!4v1732030469782!5m2!1sja!2sjp",
+    "googleMap": "https://maps.app.goo.gl/St9DsVoq5JvoLN61A",
+    "mapEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.470268188464!2d139.75834607507562!3d35.71465132813866!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188c31d456c3b7%3A0x7e0c15037ed16d83!2z5belM-WPt-mkqOWbs-abuOWupCDmnbHkuqzlpKflrablt6Xlrabjg7vmg4XloLHnkIblt6Xlrablm7Pmm7jppKg!5e0!3m2!1sja!2sjp!4v1683867333748!5m2!1sja!2sjp",
     "youtubeEmbed": "https://www.youtube.com/embed/mLT0P1CSfqg",
     "surveyForm": ""
   },
